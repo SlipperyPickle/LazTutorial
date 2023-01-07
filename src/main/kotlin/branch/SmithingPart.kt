@@ -3,6 +3,7 @@ package branch
 import Script
 import leafs.*
 import org.powbot.api.Tile
+import org.powbot.api.rt4.Inventory
 import org.powbot.api.rt4.Varpbits
 import org.powbot.api.script.tree.Branch
 import org.powbot.api.script.tree.TreeComponent
@@ -22,7 +23,7 @@ class ShouldMineTin(script: Script) : Branch<Script>(script, "ShouldMineTin") {
     override val failedComponent: TreeComponent<Script> = ShouldMineCopper(script)
 
     override fun validate(): Boolean {
-        return Varpbits.varpbit(281) == 300
+        return Varpbits.varpbit(281) == 300 && Inventory.stream().name("Tin ore").isEmpty()
     }
 }
 

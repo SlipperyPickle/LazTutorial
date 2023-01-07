@@ -10,12 +10,10 @@ class MineTin(script: Script) : Leaf<Script>(script, "Mine Tin") {
 
     override fun execute() {
         val tinMine = Objects.stream().id(10080).nearest().first()
-        if (Inventory.stream().name("Tin ore").isEmpty()) {
-            if (tinMine.inViewport()) {
-                tinMine.interact("Mine", "Rocks")
-                Condition.wait {
-                    Inventory.stream().name("Tin ore").isNotEmpty()
-                }
+        if (tinMine.inViewport()) {
+            tinMine.interact("Mine", "Rocks")
+            Condition.wait {
+                Inventory.stream().name("Tin ore").isNotEmpty()
             }
         }
     }
