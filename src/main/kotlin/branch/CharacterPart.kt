@@ -42,7 +42,7 @@ class ShouldChangeLooks(script: Script) : Branch<Script>(script, "ShouldChangeLo
 
     override fun validate(): Boolean {
 
-        return script.settings.randomLooks && Varpbits.varpbit(281) == 1
+        return Varpbits.varpbit(281) == 1
     }
 }
 

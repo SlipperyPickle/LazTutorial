@@ -34,18 +34,19 @@ class OpenTab(script: Script, private val tabWidget: Game.Tab ) : Leaf<Script>(s
         if (tabWidget == Game.Tab.SETTINGS) {
             Widgets.widget(116).component(75).click()
             Condition.sleep(Random.nextInt(500, 600))
-
+            val hideRoofs = Widgets.widget(134).component(18).component(77)
+            hideRoofs.click()
+            Condition.sleep(Random.nextInt(300, 450))
+            //TODO fix
+            val setZoom = Widgets.widget(134).component(18).component(30)
+            setZoom.click()
+            Condition.sleep(Random.nextInt(300, 450))
+            val closeButton = Widgets.widget(134).component(4)
+            closeButton.click()
+            Condition.sleep(Random.nextInt(300, 450))
         }
 
-        val hideRoofs = Widgets.widget(134).component(18).component(77)
-        hideRoofs.click()
-        Condition.sleep(Random.nextInt(300, 450))
-        val setZoom = Widgets.widget(134).component(18).component(28)
-        setZoom.click()
-        Condition.sleep(Random.nextInt(300, 450))
-        val closeButton = Widgets.widget(134).component(4)
-        closeButton.click()
-        Condition.sleep(Random.nextInt(300, 450))
+
         Game.closeOpenTab()
     }
 }
